@@ -3,6 +3,7 @@ package updatengn;
 import static java.awt.EventQueue.invokeLater;
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -22,7 +23,8 @@ public class Update extends JFrame {
             BeforeStart BEFORESTART = new BeforeStart(NGN);
             FindFile(ZIP_ARCHIVE); // Пошук нової версії продукту
             UnZip app = new UnZip();
-            app.unZip(ZIP_ARCHIVE+"ver."+NewVer+".zip"); // розархівування нової версії
+            String NewVerUn = new DecimalFormat("#0.00").format(NewVer);
+            app.unZip(ZIP_ARCHIVE+"ver."+NewVerUn+".zip"); // розархівування нової версії
             try {  
                 OpenandShut();
             } catch (InterruptedException ex) {
